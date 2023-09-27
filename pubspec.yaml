@@ -35,6 +35,33 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  # local cache (all platforms)
+  shared_preferences: ^2.0.15
+  # state manager (all platforms)
+  flutter_bloc: ^8.1.3
+  # dependency injection (all platforms)
+  get_it: ^7.6.0
+  # DI tags support (all platforms)
+  injectable: ^2.3.0
+  #* local storage (all platforms)
+  hive: ^2.2.3
+  #* Extension for Hive. Makes it easier to use Hive in Flutter apps.
+  hive_flutter: ^1.1.0
+  #* hive model adapter generator (all platforms)
+  hive_generator: ^2.0.1
+  # mime type support (all platforms)
+  http_parser: ^4.0.2
+  # http client (all platforms)
+  http: ^1.1.0
+  # adaptive screen
+  flutter_screenutil: ^5.8.0
+  # svg image loader (all platforms)
+  flutter_svg: ^2.0.7
+  flutter_svg_provider: ^1.0.6
+  # native splash
+  flutter_native_splash: ^2.3.2
+  #google font
+  google_fonts: ^5.1.0
 
 dev_dependencies:
   flutter_test:
