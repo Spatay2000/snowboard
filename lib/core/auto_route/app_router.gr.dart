@@ -15,6 +15,17 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    IndexSkiboRoute.name: (routeData) {
+      final args = routeData.argsAs<IndexSkiboRouteArgs>(
+          orElse: () => const IndexSkiboRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: IndexSkiboTabBar(
+          key: args.key,
+          screenIndex: args.screenIndex,
+        ),
+      );
+    },
     IntroRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -28,6 +39,44 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [IndexSkiboTabBar]
+class IndexSkiboRoute extends PageRouteInfo<IndexSkiboRouteArgs> {
+  IndexSkiboRoute({
+    Key? key,
+    int? screenIndex = 0,
+    List<PageRouteInfo>? children,
+  }) : super(
+          IndexSkiboRoute.name,
+          args: IndexSkiboRouteArgs(
+            key: key,
+            screenIndex: screenIndex,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'IndexSkiboRoute';
+
+  static const PageInfo<IndexSkiboRouteArgs> page =
+      PageInfo<IndexSkiboRouteArgs>(name);
+}
+
+class IndexSkiboRouteArgs {
+  const IndexSkiboRouteArgs({
+    this.key,
+    this.screenIndex = 0,
+  });
+
+  final Key? key;
+
+  final int? screenIndex;
+
+  @override
+  String toString() {
+    return 'IndexSkiboRouteArgs{key: $key, screenIndex: $screenIndex}';
+  }
 }
 
 /// generated route for

@@ -1,9 +1,9 @@
-import 'dart:developer';
 
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:snowboard/core/auto_route/app_router.dart';
 import 'package:snowboard/features/common/custom_button.dart';
 import 'package:snowboard/features/common/custom_textfield.dart';
 import 'package:snowboard/features/common/row_text_in_auth.dart';
@@ -121,8 +121,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     CustomButton(
                       onTap: () {
-                        var num = unmaskPhoneNumber(phoneController.text);
-                        log(num);
+                        // var num = unmaskPhoneNumber(phoneController.text);
+                        context.router.push(IndexSkiboRoute(screenIndex: 0));
                       },
                       text: 'Вход',
                       showBlackColor: false,

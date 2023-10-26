@@ -1,5 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/widgets.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:snowboard/features/index_skibo/index_skibo.dart';
 import 'package:snowboard/features/intro/intro.dart';
 import 'package:snowboard/features/login/login.dart';
 part 'app_router.gr.dart';
@@ -15,6 +17,23 @@ class AppRouter extends _$AppRouter {
           page: IntroRoute.page,
         ),
         AutoRoute(page: LoginRoute.page),
+        AutoRoute(
+          page: IndexSkiboRoute.page,
+          children: [
+            AutoRoute(
+              page: IntroRoute.page,
+            ),
+            AutoRoute(
+              page: LoginRoute.page,
+            ),
+            AutoRoute(
+              page: IntroRoute.page,
+            ),
+            AutoRoute(
+              page: LoginRoute.page,
+            ),
+          ],
+        )
       ];
 }
 
