@@ -37,7 +37,7 @@ class _IndexSkiboTabBarState extends State<IndexSkiboTabBar> {
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
       routes: const [
-        IntroRoute(),
+        HomeRoute(),
         LoginRoute(),
         IntroRoute(),
         LoginRoute(),
