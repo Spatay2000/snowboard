@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:snowboard/features/intro/intro.dart';
 import 'package:snowboard/features/login/login.dart';
 part 'app_router.gr.dart';
 
@@ -11,8 +12,9 @@ class AppRouter extends _$AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(
           initial: true,
-          page: LoginRoute.page,
+          page: IntroRoute.page,
         ),
+        AutoRoute(page: LoginRoute.page),
       ];
 }
 
@@ -24,7 +26,7 @@ class _CheckSession extends AutoRouteGuard {
     if (loggedIn) {
       resolver.next(true);
     } else {
-      resolver.redirect(const LoginRoute());
+      resolver.redirect(const IntroRoute());
       // Если пользователь не вошел, показываем экран входа.
     }
   }

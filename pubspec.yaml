@@ -64,7 +64,8 @@ dependencies:
   google_fonts: ^5.1.0
   #routers
   auto_route: 7.8.0
-  
+  # input formatter (all platforms)
+  mask_text_input_formatter: ^2.3.0
 
 
 flutter_native_splash:
