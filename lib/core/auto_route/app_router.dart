@@ -5,11 +5,14 @@ import 'package:snowboard/features/home/home.dart';
 import 'package:snowboard/features/index_skibo/index_skibo.dart';
 import 'package:snowboard/features/intro/intro.dart';
 import 'package:snowboard/features/login/login.dart';
+import 'package:snowboard/features/password_reset/password_reset.dart';
+import 'package:snowboard/features/registration/phone_number_registration.dart';
+import 'package:snowboard/features/registration/registration.dart';
+import 'package:snowboard/features/registration/verification.dart';
+
 part 'app_router.gr.dart';
 
-@AutoRouterConfig(
-  replaceInRouteName: 'Screen|TabBar,Route',
-)
+@AutoRouterConfig(replaceInRouteName: 'Screen|TabBar,Route')
 class AppRouter extends _$AppRouter {
   @override
   List<AutoRoute> get routes => [
@@ -21,21 +24,16 @@ class AppRouter extends _$AppRouter {
         AutoRoute(
           page: IndexSkiboRoute.page,
           children: [
-            AutoRoute(
-              page: HomeRoute.page
-            ),
-            AutoRoute(
-              page: HomeRoute.page
-            ),
-            AutoRoute(
-              page: IntroRoute.page,
-            ),
-            AutoRoute(
-              page: LoginRoute.page,
-            ),
-            
+            AutoRoute(page: HomeRoute.page),
+            AutoRoute(page: HomeRoute.page),
+            AutoRoute(page: IntroRoute.page),
+            AutoRoute(page: LoginRoute.page),
           ],
-        )
+        ),
+        AutoRoute(page: RegistrationRoute.page),
+        AutoRoute(page: PhoneNumberRegistrationRoute.page),
+        AutoRoute(page: VerificationRoute.page),
+        AutoRoute(page: PasswordResetRoute.page),
       ];
 }
 

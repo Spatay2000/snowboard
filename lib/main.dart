@@ -37,13 +37,16 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenUtilInit(
-      minTextAdapt: true,
-      useInheritedMediaQuery: true,
-      designSize: const Size(360, 800),
-      builder: (context, child) => MaterialApp.router(
-        routerConfig: _appRouter.config(),
-        debugShowCheckedModeBanner: false,
+    return GestureDetector(
+      onTap: () => FocusManager.instance.primaryFocus!.unfocus(),
+      child: ScreenUtilInit(
+        minTextAdapt: true,
+        useInheritedMediaQuery: true,
+        designSize: const Size(360, 800),
+        builder: (context, child) => MaterialApp.router(
+          routerConfig: _appRouter.config(),
+          debugShowCheckedModeBanner: false,
+        ),
       ),
     );
   }

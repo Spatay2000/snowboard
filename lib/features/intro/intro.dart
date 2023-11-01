@@ -17,40 +17,44 @@ class _IntroScreenState extends State<IntroScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Container(
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("assets/png/bg_login.png"),
-          fit: BoxFit.contain,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/png/bg_login.png"),
+            fit: BoxFit.contain,
+          ),
         ),
-      ),
-      child: Column(
-        children: [
-          const Spacer(),
-          Expanded(
-            child: Container(
-              padding: const EdgeInsets.only(left: 30, right: 30, top: 48).r,
-              decoration: BoxDecoration(
+        child: Column(
+          children: [
+            const Spacer(),
+            Expanded(
+              child: Container(
+                padding: const EdgeInsets.only(left: 30, right: 30, top: 48).r,
+                decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(35.r),
-                  color: Colors.white),
-              child: Column(
-                children: [
-                  CustomButton(
+                  color: Colors.white,
+                ),
+                child: Column(
+                  children: [
+                    CustomButton(
                       text: 'Войти',
                       showIcon: true,
-                      onTap: () => context.router.push(const LoginRoute())),
-                  SizedBox(
-                    height: 47.h,
-                  ),
-                  const RowTextInAuth(
+                      onTap: () => context.router.push(const LoginRoute()),
+                    ),
+                    SizedBox(height: 47.h),
+                    RowTextInAuth(
                       text: 'У вас еще нет учетной записи?',
-                      textSecond: 'Зарегистрироваться')
-                ],
+                      textSecond: 'Зарегистрироваться',
+                      onTap: () =>
+                          context.router.push(const RegistrationRoute()),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
-    ));
+    );
   }
 }
