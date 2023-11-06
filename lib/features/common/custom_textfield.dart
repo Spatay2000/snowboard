@@ -5,10 +5,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 import 'package:snowboard/features/common/skibo_color.dart';
 
-enum SkiboInputType { text, number }
+enum SkiboInputType { text, number, email }
 
 class CustomTextField extends StatelessWidget {
-  final SkiboInputType type;
+  final SkiboInputType? type;
   final TextEditingController controller;
   final String hintText;
   final String? Function(String?)? validator;
@@ -16,6 +16,9 @@ class CustomTextField extends StatelessWidget {
   final Function()? onTap;
   final bool readOnly;
   final int? maxLength;
+  final FloatingLabelBehavior? floatingLabelBehavior;
+  final bool obscureText;
+  final Widget? suffixIcon;
 
   const CustomTextField({
     Key? key,
@@ -27,6 +30,9 @@ class CustomTextField extends StatelessWidget {
     this.maxLength,
     required this.controller,
     required this.hintText,
+    this.floatingLabelBehavior,
+    this.obscureText = false,
+    this.suffixIcon,
   }) : super(key: key);
 
   @override
@@ -40,11 +46,14 @@ class CustomTextField extends StatelessWidget {
       inputFormatters: formatter,
       onTap: onTap,
       maxLength: maxLength,
+      obscureText: obscureText,
       decoration: InputDecoration(
         labelStyle: GoogleFonts.inter(
             color: Colors.black, fontSize: 14.sp, fontWeight: FontWeight.w500),
+        contentPadding: EdgeInsets.only(left: 27.w),
         alignLabelWithHint: false,
         labelText: hintText,
+        floatingLabelBehavior: floatingLabelBehavior,
         counterText: '',
         prefix: type == SkiboInputType.number ? const Text('+7 ') : null,
         prefixStyle: GoogleFonts.inter(
@@ -65,6 +74,7 @@ class CustomTextField extends StatelessWidget {
             Radius.circular(16.0),
           ),
         ),
+        suffixIcon: suffixIcon,
       ),
       onChanged: onChanged,
     );
@@ -74,6 +84,8 @@ class CustomTextField extends StatelessWidget {
     switch (type) {
       case SkiboInputType.number:
         return TextInputType.number;
+      case SkiboInputType.email:
+        return TextInputType.emailAddress;
       default:
         return TextInputType.text;
     }

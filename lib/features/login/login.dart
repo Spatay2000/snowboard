@@ -1,4 +1,3 @@
-
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -71,9 +70,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           fontSize: 24.sp,
                           fontWeight: FontWeight.w700),
                     ),
-                    SizedBox(
-                      height: 15.r,
-                    ),
+                    SizedBox(height: 15.r),
                     ToggleButtons(
                       selectedColor: Colors.black,
                       focusColor: Colors.transparent,
@@ -100,25 +97,23 @@ class _LoginScreenState extends State<LoginScreen> {
                       CustomTextField(
                           controller: emailController, hintText: 'Email'),
                     ],
-                    SizedBox(
-                      height: 15.r,
-                    ),
+                    SizedBox(height: 15.r),
                     CustomTextField(
                         controller: emailController, hintText: 'Пароль'),
-                    SizedBox(
-                      height: 28.r,
-                    ),
+                    SizedBox(height: 28.r),
                     GestureDetector(
-                        child: Text(
-                      'Забыли пароль учетной системы?',
-                      style: GoogleFonts.inter(
+                      onTap: () =>
+                          context.router.push(const PasswordResetRoute()),
+                      child: Text(
+                        'Забыли пароль учетной системы?',
+                        style: GoogleFonts.inter(
                           color: const Color(0xff7EADF9),
                           fontSize: 12.sp,
-                          fontWeight: FontWeight.w600),
-                    )),
-                    SizedBox(
-                      height: 25.r,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
+                    SizedBox(height: 25.r),
                     CustomButton(
                       onTap: () {
                         // var num = unmaskPhoneNumber(phoneController.text);
@@ -134,9 +129,11 @@ class _LoginScreenState extends State<LoginScreen> {
             const Spacer(),
             Padding(
               padding: const EdgeInsets.only(left: 25, right: 15).r,
-              child: const RowTextInAuth(
-                  text: 'У вас еще нет учетной записи?',
-                  textSecond: 'Зарегистрироваться'),
+              child: RowTextInAuth(
+                text: 'У вас еще нет учетной записи?',
+                textSecond: 'Зарегистрироваться',
+                onTap: () => context.router.push(const RegistrationRoute()),
+              ),
             ),
             const Spacer(),
           ],

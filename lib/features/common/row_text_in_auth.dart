@@ -7,6 +7,7 @@ class RowTextInAuth extends StatelessWidget {
   final String textSecond;
   final MainAxisAlignment mainAxisAlignment;
   final Function()? onTap;
+
   const RowTextInAuth({
     super.key,
     required this.text,

@@ -44,6 +44,30 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const LoginScreen(),
       );
     },
+    PasswordResetRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PasswordResetScreen(),
+      );
+    },
+    PhoneNumberRegistrationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PhoneNumberRegistrationScreen(),
+      );
+    },
+    RegistrationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RegistrationScreen(),
+      );
+    },
+    VerificationRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const VerificationScreen(),
+      );
+    },
   };
 }
 
@@ -123,6 +147,62 @@ class LoginRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'LoginRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PasswordResetScreen]
+class PasswordResetRoute extends PageRouteInfo<void> {
+  const PasswordResetRoute({List<PageRouteInfo>? children})
+      : super(
+          PasswordResetRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PasswordResetRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PhoneNumberRegistrationScreen]
+class PhoneNumberRegistrationRoute extends PageRouteInfo<void> {
+  const PhoneNumberRegistrationRoute({List<PageRouteInfo>? children})
+      : super(
+          PhoneNumberRegistrationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PhoneNumberRegistrationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [RegistrationScreen]
+class RegistrationRoute extends PageRouteInfo<void> {
+  const RegistrationRoute({List<PageRouteInfo>? children})
+      : super(
+          RegistrationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RegistrationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [VerificationScreen]
+class VerificationRoute extends PageRouteInfo<void> {
+  const VerificationRoute({List<PageRouteInfo>? children})
+      : super(
+          VerificationRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'VerificationRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
