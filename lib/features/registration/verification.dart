@@ -4,10 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:pinput/pinput.dart';
 import 'package:snowboard/core/auto_route/app_router.dart';
+import 'package:snowboard/features/common/custom_app_bar.dart';
 import 'package:snowboard/features/common/custom_button.dart';
 import 'package:snowboard/features/common/row_text_in_auth.dart';
 import 'package:snowboard/features/common/skibo_color.dart';
-import 'package:snowboard/features/registration/phone_number_registration.dart';
 
 @RoutePage()
 class VerificationScreen extends StatelessWidget {
@@ -18,7 +18,7 @@ class VerificationScreen extends StatelessWidget {
     return Scaffold(
       extendBodyBehindAppBar: true,
       resizeToAvoidBottomInset: false,
-      appBar: const AppBarBack(),
+      appBar: const CustomAppBar(),
       body: Padding(
         padding: EdgeInsets.only(left: 12.w, right: 12.w, top: 90.h),
         child: Form(
@@ -28,7 +28,7 @@ class VerificationScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 18.w),
                 child: Text(
-                  'Login with\nPhoneNumber',
+                  'Войти с помощью\nНомера Телефона',
                   style: GoogleFonts.inter(
                     color: SkiboColor.blackColor,
                     fontWeight: FontWeight.w700,
@@ -68,7 +68,7 @@ class VerificationScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const Spacer(),
+              SizedBox(height: 95.h),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 26.w),
                 child: CustomButton(
@@ -78,14 +78,13 @@ class VerificationScreen extends StatelessWidget {
                   isTextCentered: true,
                 ),
               ),
-              const Spacer(),
+              SizedBox(height: 235.h),
               RowTextInAuth(
                 mainAxisAlignment: MainAxisAlignment.center,
                 text: 'У вас еще нет учетной записи?',
                 textSecond: 'Зарегистрироваться',
                 onTap: () => context.router.push(const RegistrationRoute()),
               ),
-              const Spacer(),
             ],
           ),
         ),
