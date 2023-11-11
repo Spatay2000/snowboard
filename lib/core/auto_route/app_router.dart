@@ -6,6 +6,7 @@ import 'package:snowboard/features/index_skibo/index_skibo.dart';
 import 'package:snowboard/features/intro/intro.dart';
 import 'package:snowboard/features/login/login.dart';
 import 'package:snowboard/features/password_reset/password_reset.dart';
+import 'package:snowboard/features/profile/profile.dart';
 import 'package:snowboard/features/registration/phone_number_registration.dart';
 import 'package:snowboard/features/registration/registration.dart';
 import 'package:snowboard/features/registration/verification.dart';
@@ -25,9 +26,9 @@ class AppRouter extends _$AppRouter {
           page: IndexSkiboRoute.page,
           children: [
             AutoRoute(page: HomeRoute.page),
-            AutoRoute(page: HomeRoute.page),
-            AutoRoute(page: IntroRoute.page),
             AutoRoute(page: LoginRoute.page),
+            AutoRoute(page: IntroRoute.page),
+            AutoRoute(page: ProfileRoute.page),
           ],
         ),
         AutoRoute(page: RegistrationRoute.page),

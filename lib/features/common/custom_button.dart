@@ -6,18 +6,30 @@ import 'package:snowboard/features/common/skibo_color.dart';
 
 class CustomButton extends StatelessWidget {
   final bool showBlackColor;
-  final bool showIcon;
   final String text;
   final Function()? onTap;
   final bool isTextCentered;
+  final double borderRadius;
+  final double? height;
+  final String? leftIcon;
+  final String? rightIcon;
+  final Color? leftIconColor;
+  final double? leftIconTextSpacing;
+  final double rigthPadding;
 
   const CustomButton({
     super.key,
     this.showBlackColor = true,
-    this.showIcon = false,
     required this.text,
     this.onTap,
     this.isTextCentered = false,
+    this.borderRadius = 45,
+    this.height,
+    this.leftIcon,
+    this.rightIcon,
+    this.leftIconColor,
+    this.leftIconTextSpacing,
+    this.rigthPadding = 0,
   });
 
   @override
@@ -25,11 +37,17 @@ class CustomButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
+        height: height,
         padding: isTextCentered
             ? const EdgeInsets.symmetric(vertical: 16).r
-            : const EdgeInsets.only(top: 16, bottom: 16, left: 52).r,
+            : EdgeInsets.only(
+                top: 16,
+                bottom: 16,
+                left: 52,
+                right: rigthPadding,
+              ).r,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(45.r),
+          borderRadius: BorderRadius.circular(borderRadius.r),
           color: showBlackColor == true
               ? SkiboColor.defaultColorButton
               : SkiboColor.secondaryColorButton,
@@ -39,12 +57,15 @@ class CustomButton extends StatelessWidget {
               ? MainAxisAlignment.center
               : MainAxisAlignment.start,
           children: [
-            showIcon == false
+            leftIcon == null
                 ? const SizedBox()
-                : SvgPicture.asset('assets/svg/phone.svg'),
-            showIcon == false ? const SizedBox() : SizedBox(width: 61.w),
+                : SvgPicture.asset(
+                    leftIcon!,
+                    color: leftIconColor,
+                  ),
+            SizedBox(width: leftIconTextSpacing?.w),
             Padding(
-              padding: showBlackColor == false
+              padding: (showBlackColor == false && !isTextCentered)
                   ? const EdgeInsets.only(left: 80).r
                   : EdgeInsets.zero,
               child: Text(
@@ -55,7 +76,15 @@ class CustomButton extends StatelessWidget {
                   fontWeight: FontWeight.w600,
                 ),
               ),
-            )
+            ),
+            if (rightIcon != null) ...[
+              Expanded(
+                child: Align(
+                  alignment: Alignment.centerRight,
+                  child: SvgPicture.asset(rightIcon!),
+                ),
+              ),
+            ],
           ],
         ),
       ),
