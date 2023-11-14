@@ -68,6 +68,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const RegistrationScreen(),
       );
     },
+    ScheduleRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ScheduleScreen(),
+      );
+    },
     VerificationRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -209,6 +215,20 @@ class RegistrationRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'RegistrationRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ScheduleScreen]
+class ScheduleRoute extends PageRouteInfo<void> {
+  const ScheduleRoute({List<PageRouteInfo>? children})
+      : super(
+          ScheduleRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ScheduleRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

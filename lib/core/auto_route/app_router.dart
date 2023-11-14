@@ -10,6 +10,7 @@ import 'package:snowboard/features/profile/profile.dart';
 import 'package:snowboard/features/registration/phone_number_registration.dart';
 import 'package:snowboard/features/registration/registration.dart';
 import 'package:snowboard/features/registration/verification.dart';
+import 'package:snowboard/features/schedule/schedule.dart';
 
 part 'app_router.gr.dart';
 
@@ -27,8 +28,9 @@ class AppRouter extends _$AppRouter {
           children: [
             AutoRoute(page: HomeRoute.page),
             AutoRoute(page: LoginRoute.page),
-            AutoRoute(page: IntroRoute.page),
+            AutoRoute(page: ScheduleRoute.page),
             AutoRoute(page: ProfileRoute.page),
+            
           ],
         ),
         AutoRoute(page: RegistrationRoute.page),
