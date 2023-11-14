@@ -17,4 +17,8 @@ class SkiboColor {
   static const whiteColor = Color(0xFFFFFFFF);
   static const black2Color = Color(0xFF40434D);
   static const gray3Color = Color(0xFFDFE2E8);
+  static const blue2Color = Color(0xFFF4F5F7);
+  static const gray4Color = Color(0xFFEFEFEF);
+  static const gray5Color = Color(0xFFF7F7F7);
+  static const gray6Color = Color(0xFFE7E7E7);
 }

@@ -38,7 +38,8 @@ class _IntroScreenState extends State<IntroScreen> {
                   children: [
                     CustomButton(
                       text: 'Войти',
-                      showIcon: true,
+                      leftIcon: 'assets/svg/phone.svg',
+                      leftIconTextSpacing: 60,
                       onTap: () => context.router.push(const LoginRoute()),
                     ),
                     SizedBox(height: 47.h),

@@ -40,7 +40,7 @@ class _IndexSkiboTabBarState extends State<IndexSkiboTabBar> {
         HomeRoute(),
         LoginRoute(),
         IntroRoute(),
-        LoginRoute(),
+        ProfileRoute(),
       ],
       backgroundColor: Colors.transparent,
       bottomNavigationBuilder: (context, tabsRouter) {
