@@ -14,6 +14,11 @@ void main() async {
   // dependency injection entry point
   await configureDependencies();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
+  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark.copyWith(
+      statusBarColor: Colors.black, // Color for Android
+      statusBarBrightness:
+          Brightness.light // Dark == white status bar -- for IOS.
+      ));
 
   runApp(
     const MyApp(),
