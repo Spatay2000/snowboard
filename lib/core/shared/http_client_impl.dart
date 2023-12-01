@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
 import 'package:injectable/injectable.dart';
+import 'package:snowboard/core/constants/server_variables.dart';
 
 import '../../features/utils/routes.dart';
 import '../constants/cache_keys.dart';
@@ -15,14 +16,11 @@ import 'http.dart';
 
 @Injectable(as: Http)
 class HttpImpl implements Http {
-  final baseUrl = '';
+  final baseUrl = ServerVariables.baseUrl;
   final Cache cache;
   final NavigationService navigationService;
 
-  HttpImpl({
-    required this.cache,
-    required this.navigationService
-  });
+  HttpImpl({required this.cache, required this.navigationService});
 
   @override
   Future<dynamic> get(String url, {anotherToken, String query = ''}) async {

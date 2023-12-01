@@ -100,8 +100,8 @@ BottomNavigationBarItem _customBottomNavigationBarItem(
   return BottomNavigationBarItem(
       label: label,
       activeIcon: SizedBox(
-        height: 30.h,
-        width: 30.w,
+        height: 28.h,
+        width: 28.w,
         child: SvgPicture.asset(
           icon,
           // ignore: deprecated_member_use
@@ -109,8 +109,8 @@ BottomNavigationBarItem _customBottomNavigationBarItem(
         ),
       ),
       icon: SizedBox(
-        height: 30.h,
-        width: 30.w,
+        height: 28.h,
+        width: 28.w,
         child: SvgPicture.asset(
           icon,
           // ignore: deprecated_member_use
