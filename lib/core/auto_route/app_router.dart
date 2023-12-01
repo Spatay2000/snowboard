@@ -8,7 +8,7 @@ import 'package:snowboard/features/login/login.dart';
 import 'package:snowboard/features/password_reset/password_reset.dart';
 import 'package:snowboard/features/profile/profile.dart';
 import 'package:snowboard/features/registration/phone_number_registration.dart';
-import 'package:snowboard/features/registration/registration.dart';
+import 'package:snowboard/features/registration/registration_bloc/registration.dart';
 import 'package:snowboard/features/registration/verification.dart';
 import 'package:snowboard/features/schedule/schedule.dart';
 

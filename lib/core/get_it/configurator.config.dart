@@ -16,8 +16,15 @@ import 'package:snowboard/core/shared/cache_impl.dart' as _i4;
 import 'package:snowboard/core/shared/http.dart' as _i7;
 import 'package:snowboard/core/shared/http_client_impl.dart' as _i8;
 import 'package:snowboard/core/utils/navigation_service.dart' as _i6;
+import 'package:snowboard/data/datasource/remote/client_remote_datasource.dart'
+    as _i9;
+import 'package:snowboard/data/repository/client_repository_impl.dart' as _i11;
+import 'package:snowboard/domain/repository/client_repository.dart' as _i10;
+import 'package:snowboard/domain/usecase/register_usecase.dart' as _i12;
 import 'package:snowboard/features/index_skibo/bloc/index_skibo_bloc.dart'
     as _i5;
+import 'package:snowboard/features/registration/registration_bloc/bloc/registration_bloc.dart'
+    as _i13;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -37,6 +44,14 @@ extension GetItInjectableX on _i1.GetIt {
           cache: gh<_i3.Cache>(),
           navigationService: gh<_i6.NavigationService>(),
         ));
+    gh.lazySingleton<_i9.ClientRemoteDataSource>(
+        () => _i9.ClientRemoteDataSourceImpl(http: gh<_i7.Http>()));
+    gh.lazySingleton<_i10.ClientRepository>(
+        () => _i11.ClientRepositoryImpl(gh<_i9.ClientRemoteDataSource>()));
+    gh.lazySingleton<_i12.RegisterUseCase>(() =>
+        _i12.RegisterUseCase(clientRepository: gh<_i10.ClientRepository>()));
+    gh.factory<_i13.RegistrationBloc>(
+        () => _i13.RegistrationBloc(gh<_i12.RegisterUseCase>()));
     return this;
   }
 }
