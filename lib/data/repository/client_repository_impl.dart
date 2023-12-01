@@ -21,4 +21,14 @@ class ClientRepositoryImpl implements ClientRepository {
         repeatPassword: repeatPassword);
     return user.toEntity();
   }
+
+  @override
+  Future<AfterUserEntity> registerPhoneNumber({
+    required String userId,
+    required String phoneNumber,
+  }) async {
+    final user = await clientRemoteDataSource.registerPhoneNumber(
+        userId: userId, phoneNumber: phoneNumber);
+    return user.toEntity();
+  }
 }

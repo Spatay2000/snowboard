@@ -40,7 +40,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
           if (state is RegisterFailure) {
             state.message;
           } else if (state is RegisterSuccess) {
-            context.router.push(const PhoneNumberRegistrationRoute());
+            context.router.push(PhoneNumberRegistrationRoute(userId: state.id));
           }
         }, builder: (context, state) {
           return Padding(

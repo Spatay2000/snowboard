@@ -6,4 +6,9 @@ abstract class ClientRepository {
       required String fullName,
       required String password,
       required String repeatPassword});
+
+  Future<AfterUserEntity> registerPhoneNumber ({
+    required String userId,
+    required String phoneNumber,
+  });
 }
