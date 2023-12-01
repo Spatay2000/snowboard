@@ -51,9 +51,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     PhoneNumberRegistrationRoute.name: (routeData) {
+      final args = routeData.argsAs<PhoneNumberRegistrationRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const PhoneNumberRegistrationScreen(),
+        child: PhoneNumberRegistrationScreen(
+          key: args.key,
+          userId: args.userId,
+        ),
       );
     },
     ProfileRoute.name: (routeData) {
@@ -179,16 +183,41 @@ class PasswordResetRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [PhoneNumberRegistrationScreen]
-class PhoneNumberRegistrationRoute extends PageRouteInfo<void> {
-  const PhoneNumberRegistrationRoute({List<PageRouteInfo>? children})
-      : super(
+class PhoneNumberRegistrationRoute
+    extends PageRouteInfo<PhoneNumberRegistrationRouteArgs> {
+  PhoneNumberRegistrationRoute({
+    Key? key,
+    required String userId,
+    List<PageRouteInfo>? children,
+  }) : super(
           PhoneNumberRegistrationRoute.name,
+          args: PhoneNumberRegistrationRouteArgs(
+            key: key,
+            userId: userId,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'PhoneNumberRegistrationRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<PhoneNumberRegistrationRouteArgs> page =
+      PageInfo<PhoneNumberRegistrationRouteArgs>(name);
+}
+
+class PhoneNumberRegistrationRouteArgs {
+  const PhoneNumberRegistrationRouteArgs({
+    this.key,
+    required this.userId,
+  });
+
+  final Key? key;
+
+  final String userId;
+
+  @override
+  String toString() {
+    return 'PhoneNumberRegistrationRouteArgs{key: $key, userId: $userId}';
+  }
 }
 
 /// generated route for

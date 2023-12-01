@@ -20,11 +20,15 @@ import 'package:snowboard/data/datasource/remote/client_remote_datasource.dart'
     as _i9;
 import 'package:snowboard/data/repository/client_repository_impl.dart' as _i11;
 import 'package:snowboard/domain/repository/client_repository.dart' as _i10;
-import 'package:snowboard/domain/usecase/register_usecase.dart' as _i12;
+import 'package:snowboard/domain/usecase/register_phone_number_usecase.dart'
+    as _i12;
+import 'package:snowboard/domain/usecase/register_usecase.dart' as _i13;
 import 'package:snowboard/features/index_skibo/bloc/index_skibo_bloc.dart'
     as _i5;
+import 'package:snowboard/features/registration/phone_number_bloc/bloc/phone_number_register_bloc.dart'
+    as _i15;
 import 'package:snowboard/features/registration/registration_bloc/bloc/registration_bloc.dart'
-    as _i13;
+    as _i14;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -48,10 +52,15 @@ extension GetItInjectableX on _i1.GetIt {
         () => _i9.ClientRemoteDataSourceImpl(http: gh<_i7.Http>()));
     gh.lazySingleton<_i10.ClientRepository>(
         () => _i11.ClientRepositoryImpl(gh<_i9.ClientRemoteDataSource>()));
-    gh.lazySingleton<_i12.RegisterUseCase>(() =>
-        _i12.RegisterUseCase(clientRepository: gh<_i10.ClientRepository>()));
-    gh.factory<_i13.RegistrationBloc>(
-        () => _i13.RegistrationBloc(gh<_i12.RegisterUseCase>()));
+    gh.lazySingleton<_i12.RegisterPhoneNumberUseCase>(() =>
+        _i12.RegisterPhoneNumberUseCase(
+            clientRepository: gh<_i10.ClientRepository>()));
+    gh.lazySingleton<_i13.RegisterUseCase>(() =>
+        _i13.RegisterUseCase(clientRepository: gh<_i10.ClientRepository>()));
+    gh.factory<_i14.RegistrationBloc>(
+        () => _i14.RegistrationBloc(gh<_i13.RegisterUseCase>()));
+    gh.factory<_i15.PhoneNumberRegisterBloc>(() =>
+        _i15.PhoneNumberRegisterBloc(gh<_i12.RegisterPhoneNumberUseCase>()));
     return this;
   }
 }
