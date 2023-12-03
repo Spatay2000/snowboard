@@ -44,7 +44,7 @@ class _PhoneNumberRegistrationScreenState
             if (state is RegisterPhoneNumberFailure) {
               state.message;
             } else if (state is RegisterPhoneNumberSuccess) {
-              context.router.push(const VerificationRoute());
+              context.router.push(VerificationRoute(userId: widget.userId));
             }
           },
           builder: (context, state) {
@@ -164,7 +164,8 @@ class _PhoneNumberRegistrationScreenState
                         onTap: () {
                           registerPhoneNumber.add(RegisterPhoneNumber(
                               userId: widget.userId,
-                              phoneNumber: "7${unformatPhoneNumber(phoneNumberController.text)}"));
+                              phoneNumber:
+                                  "7${unformatPhoneNumber(phoneNumberController.text)}"));
                         },
                         text: 'Подтвердить',
                         isTextCentered: true,

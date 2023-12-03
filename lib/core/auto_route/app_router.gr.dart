@@ -79,9 +79,13 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
     VerificationRoute.name: (routeData) {
+      final args = routeData.argsAs<VerificationRouteArgs>();
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const VerificationScreen(),
+        child: VerificationScreen(
+          key: args.key,
+          userId: args.userId,
+        ),
       );
     },
   };
@@ -264,14 +268,38 @@ class ScheduleRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [VerificationScreen]
-class VerificationRoute extends PageRouteInfo<void> {
-  const VerificationRoute({List<PageRouteInfo>? children})
-      : super(
+class VerificationRoute extends PageRouteInfo<VerificationRouteArgs> {
+  VerificationRoute({
+    Key? key,
+    required String userId,
+    List<PageRouteInfo>? children,
+  }) : super(
           VerificationRoute.name,
+          args: VerificationRouteArgs(
+            key: key,
+            userId: userId,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'VerificationRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<VerificationRouteArgs> page =
+      PageInfo<VerificationRouteArgs>(name);
+}
+
+class VerificationRouteArgs {
+  const VerificationRouteArgs({
+    this.key,
+    required this.userId,
+  });
+
+  final Key? key;
+
+  final String userId;
+
+  @override
+  String toString() {
+    return 'VerificationRouteArgs{key: $key, userId: $userId}';
+  }
 }

@@ -23,12 +23,16 @@ import 'package:snowboard/domain/repository/client_repository.dart' as _i10;
 import 'package:snowboard/domain/usecase/register_phone_number_usecase.dart'
     as _i12;
 import 'package:snowboard/domain/usecase/register_usecase.dart' as _i13;
+import 'package:snowboard/domain/usecase/verification_code_usecase.dart'
+    as _i15;
 import 'package:snowboard/features/index_skibo/bloc/index_skibo_bloc.dart'
     as _i5;
 import 'package:snowboard/features/registration/phone_number_bloc/bloc/phone_number_register_bloc.dart'
-    as _i15;
+    as _i16;
 import 'package:snowboard/features/registration/registration_bloc/bloc/registration_bloc.dart'
     as _i14;
+import 'package:snowboard/features/registration/verification_bloc/bloc/verification_bloc.dart'
+    as _i17;
 
 extension GetItInjectableX on _i1.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -59,8 +63,13 @@ extension GetItInjectableX on _i1.GetIt {
         _i13.RegisterUseCase(clientRepository: gh<_i10.ClientRepository>()));
     gh.factory<_i14.RegistrationBloc>(
         () => _i14.RegistrationBloc(gh<_i13.RegisterUseCase>()));
-    gh.factory<_i15.PhoneNumberRegisterBloc>(() =>
-        _i15.PhoneNumberRegisterBloc(gh<_i12.RegisterPhoneNumberUseCase>()));
+    gh.lazySingleton<_i15.VerificationCodeUseCase>(() =>
+        _i15.VerificationCodeUseCase(
+            clientRepository: gh<_i10.ClientRepository>()));
+    gh.factory<_i16.PhoneNumberRegisterBloc>(() =>
+        _i16.PhoneNumberRegisterBloc(gh<_i12.RegisterPhoneNumberUseCase>()));
+    gh.factory<_i17.VerificationBloc>(
+        () => _i17.VerificationBloc(gh<_i15.VerificationCodeUseCase>()));
     return this;
   }
 }

@@ -1,4 +1,5 @@
 import 'package:snowboard/domain/entity/after_register_user_entity.dart';
+import 'package:snowboard/domain/entity/user_entity.dart';
 
 abstract class ClientRepository {
   Future<AfterUserEntity> register(
@@ -7,8 +8,13 @@ abstract class ClientRepository {
       required String password,
       required String repeatPassword});
 
-  Future<AfterUserEntity> registerPhoneNumber ({
+  Future<AfterUserEntity> registerPhoneNumber({
     required String userId,
     required String phoneNumber,
+  });
+
+  Future<UserEntity> verificationCode({
+    required String userId,
+    required int code,
   });
 }

@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:snowboard/core/shared/http.dart';
 import 'package:snowboard/data/model/after_register_user_model.dart';
+import 'package:snowboard/data/model/user_model.dart';
 
 abstract class ClientRemoteDataSource {
   Future<AfterRegisterUserModel> register(
@@ -12,6 +13,11 @@ abstract class ClientRemoteDataSource {
   Future<AfterRegisterUserModel> registerPhoneNumber({
     required String userId,
     required String phoneNumber,
+  });
+
+  Future<UserModel> verificationCode({
+    required String userId,
+    required int code,
   });
 }
 
@@ -40,5 +46,13 @@ class ClientRemoteDataSourceImpl implements ClientRemoteDataSource {
     final user = await http.post(
         '/api/Auth/verificationPhoneSmsAsync?id=$userId&phone=$phoneNumber');
     return AfterRegisterUserModel.fromJson(user);
+  }
+
+  @override
+  Future<UserModel> verificationCode(
+      {required String userId, required int code}) async {
+    final user = await http
+        .post('/api/Auth/verificationCodeSmsAsync?id=$userId&code=$code');
+    return UserModel.fromJson(user);
   }
 }
