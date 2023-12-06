@@ -69,6 +69,8 @@ dependencies:
   #equatable
   equatable: ^2.0.5
   pinput: ^3.0.1
+  #flushbar to the snackbar
+  flutter_flushbar: ^0.0.2
 
 
 flutter_native_splash:
