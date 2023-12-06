@@ -19,6 +19,12 @@ abstract class ClientRemoteDataSource {
     required String userId,
     required int code,
   });
+
+  Future<UserModel> login({
+    required String email,
+    required String password,
+    required String deviceId,
+  });
 }
 
 @LazySingleton(as: ClientRemoteDataSource)
@@ -53,6 +59,16 @@ class ClientRemoteDataSourceImpl implements ClientRemoteDataSource {
       {required String userId, required int code}) async {
     final user = await http
         .post('/api/Auth/verificationCodeSmsAsync?id=$userId&code=$code');
+    return UserModel.fromJson(user);
+  }
+
+  @override
+  Future<UserModel> login(
+      {required String email,
+      required String password,
+      required String deviceId}) async {
+    final user = await http.post(
+        '/api/Auth/login?email=$email&password=$password&deviceId=$deviceId');
     return UserModel.fromJson(user);
   }
 }

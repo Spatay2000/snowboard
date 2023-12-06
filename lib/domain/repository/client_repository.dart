@@ -17,4 +17,10 @@ abstract class ClientRepository {
     required String userId,
     required int code,
   });
+
+  Future<UserEntity> login({
+    required String email,
+    required String password,
+    required String deviceId,
+  });
 }

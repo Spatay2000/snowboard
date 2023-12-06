@@ -40,4 +40,14 @@ class ClientRepositoryImpl implements ClientRepository {
         userId: userId, code: code);
     return user.toEntity();
   }
+
+  @override
+  Future<UserEntity> login(
+      {required String email,
+      required String password,
+      required String deviceId}) async {
+    final user = await clientRemoteDataSource.login(
+        email: email, password: password, deviceId: deviceId);
+    return user.toEntity();
+  }
 }
